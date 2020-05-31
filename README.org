@@ -1,0 +1,13 @@
+#+TITLE: MahjongAI
+
+#+begin_src sh
+mkdir build && cd build || exit 1
+
+cmake ..  -DCMAKE_BUILD_TYPE=Release && make
+
+cd ../mahjong-python
+python3 dump_final_fans.py
+python3 dump_replays.py
+
+python3 main.py -m baseline_cnn configs/baseline_cnn.config
+#+end_src
